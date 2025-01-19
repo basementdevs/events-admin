@@ -66,7 +66,6 @@ class Event extends Model
     public function attend(mixed $userId, AttendingStatusEnum $status = AttendingStatusEnum::Attending): bool
     {
 
-
         $this->attendees()->attach($userId, ['status' => $status]);
 
         match ($status) {
@@ -82,7 +81,7 @@ class Event extends Model
     {
         $eventAttend = $this->attendees()->where('user_id', $userId)->first();
 
-        if (!$eventAttend) {
+        if (! $eventAttend) {
             return false;
         }
 

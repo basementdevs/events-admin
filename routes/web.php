@@ -26,4 +26,4 @@ Route::prefix('events')->group(function () {
     Route::get('/{event}', [EventsController::class, 'getEvent'])->name('events.show');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

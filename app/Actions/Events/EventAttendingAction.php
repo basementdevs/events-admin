@@ -20,11 +20,9 @@ class EventAttendingAction
             throw EventAttendException::alreadyAttending();
         }
 
-
         $attendingType = $event->attendees_count >= $event->max_attendees
             ? AttendingStatusEnum::Waitlist
             : AttendingStatusEnum::Attending;
-
 
         $event->attend($userId, $attendingType);
     }

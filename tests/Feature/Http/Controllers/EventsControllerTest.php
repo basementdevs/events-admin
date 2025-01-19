@@ -99,9 +99,7 @@ class EventsControllerTest extends TestCase
         $attendedUser = User::factory()->create();
         $event->attend($attendedUser->getKey());
 
-
         $waitlistedUser = User::factory()->create();
-
 
         $response = $this
             ->actingAs($waitlistedUser)

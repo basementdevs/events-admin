@@ -2,7 +2,6 @@
 
 namespace App\Actions\Events;
 
-use App\Enums\Events\AttendingStatusEnum;
 use App\Models\Event;
 
 class EventLeaveAction

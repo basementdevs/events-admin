@@ -29,12 +29,14 @@ class EventsController extends Controller
                 ->route('events.show', $event)
                 ->withErrors($exception->getMessage(), 'error');
         }
+
         return redirect()->route('events.show', $event);
     }
 
     public function postLeave(Event $event): RedirectResponse
     {
         $this->eventLeaveAction->handle($event);
+
         return redirect()->route('events.show', $event);
     }
 }
