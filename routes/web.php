@@ -18,9 +18,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('events')->middleware('auth')->group(function () {
-    Route::post('/{event}/join', [EventsController::class, 'postAttend'])->name('events.join');
+Route::prefix('events')->group(function () {
+    Route::group(['middleware' => 'auth'], function () {
+        Route::post('/{event}/join', [EventsController::class, 'postAttend'])->name('events.join');
+        Route::post('/{event}/leave', [EventsController::class, 'postLeave'])->name('events.leave');
+    });
     Route::get('/{event}', [EventsController::class, 'getEvent'])->name('events.show');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

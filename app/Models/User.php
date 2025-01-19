@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Pivot\EventAttend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -55,11 +56,15 @@ class User extends Authenticatable
 
     public function events(): BelongsToMany
     {
-        return $this->belongsToMany(
-            Event::class,
-            'events_attendees',
-            'user_id',
-            'event_id'
-        )->withTimestamps()->withPivotValue('status', 'pending');
+        return $this
+            ->belongsToMany(
+                Event::class,
+                'events_attendees',
+                'user_id',
+                'event_id'
+            )
+            ->using(EventAttend::class)
+            ->withPivot('status')
+            ->withTimestamps();
     }
 }
