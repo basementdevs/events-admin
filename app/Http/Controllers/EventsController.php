@@ -5,16 +5,12 @@ namespace App\Http\Controllers;
 use App\Actions\Events\EventAttendingAction;
 use App\Models\Event;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class EventsController extends Controller
 {
     public function __construct(
         private readonly EventAttendingAction $eventAttendingAction
-    )
-    {
-
-    }
+    ) {}
 
     public function getEvent(): string
     {

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('event_type'); // Meetup or Workshop
+            $table->boolean('active');
             $table->string('title');
             $table->text('description');
             $table->timestamp('event_at'); // Date
@@ -21,6 +22,8 @@ return new class extends Migration
             $table->timestamp('end_at');
             $table->string('location');
             $table->integer('max_attendees');
+            $table->integer('attendees_count')->default(0);
+            $table->integer('waitlist_count')->default(0);
             $table->timestamps();
         });
     }

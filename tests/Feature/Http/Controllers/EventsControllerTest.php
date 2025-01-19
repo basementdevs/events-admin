@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers;
 
+use App\Enums\Events\AttendingStatusEnum;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,7 +11,8 @@ use Tests\TestCase;
 class EventsControllerTest extends TestCase
 {
     use RefreshDatabase;
-    public function test_user_can_participate_into_a_event()
+
+    public function test_user_can_participate_into_an_event()
     {
         // Prepare
         $event = Event::factory()->create();
@@ -26,6 +28,7 @@ class EventsControllerTest extends TestCase
         $this->assertDatabaseHas('events_attendees', [
             'event_id' => $event->getKey(),
             'user_id' => $user->getKey(),
+            'status' => AttendingStatusEnum::Attending,
         ]);
     }
 }

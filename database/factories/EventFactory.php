@@ -14,6 +14,7 @@ class EventFactory extends Factory
     {
         return [
             'event_type' => $this->faker->word(),
+            'active' => true,
             'title' => $this->faker->word(),
             'description' => $this->faker->text(),
             'event_at' => Carbon::now(),
@@ -21,6 +22,8 @@ class EventFactory extends Factory
             'end_at' => Carbon::now(),
             'location' => $this->faker->word(),
             'max_attendees' => $this->faker->randomNumber(),
+            'attendees_count' => 0,
+            'waitlist_count' => 0,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

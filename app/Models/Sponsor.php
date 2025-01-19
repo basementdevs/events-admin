@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pivot\SponsorAttend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -20,11 +21,14 @@ class Sponsor extends Model
 
     public function events(): BelongsToMany
     {
-        return $this->belongsToMany(
-            Event::class,
-            'events_sponsors',
-            'sponsor_id',
-            'event_id'
-        )->withTimestamps()->withPivot('level');
+        return $this
+            ->belongsToMany(
+                Event::class,
+                'events_sponsors',
+                'sponsor_id',
+                'event_id'
+            )->using(SponsorAttend::class)
+            ->withTimestamps()
+            ->withPivot('level');
     }
 }

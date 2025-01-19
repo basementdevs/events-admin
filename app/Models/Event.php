@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Pivot\EventAttend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -11,6 +12,7 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
+        'active',
         'event_type',
         'title',
         'description',
@@ -19,6 +21,8 @@ class Event extends Model
         'end_at',
         'location',
         'max_attendees',
+        'attendees_count',
+        'waitlist_count',
     ];
 
     protected function casts()
@@ -32,11 +36,14 @@ class Event extends Model
 
     public function attendees(): BelongsToMany
     {
-        return $this->belongsToMany(
-            User::class,
-            'events_attendees',
-            'event_id',
-            'user_id'
-        )->withTimestamps()->withPivotValue('status', 'pending');
+        return $this
+            ->belongsToMany(
+                User::class,
+                'events_attendees',
+                'event_id',
+                'user_id'
+            )
+            ->using(EventAttend::class)
+            ->withTimestamps();
     }
 }
