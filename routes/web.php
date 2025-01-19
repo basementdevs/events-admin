@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\EventsController;
+use App\Http\Controllers\Events\AttendEventController;
+use App\Http\Controllers\Events\LeaveEventController;
+use App\Http\Controllers\Events\PaginateEventsController;
+use App\Http\Controllers\Events\ViewEventController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingController;
 
 Route::get('/', LandingController::class)->name('welcome');
 
@@ -19,10 +22,11 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('events')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
-        Route::post('/{event}/join', [EventsController::class, 'postAttend'])->name('events.join');
-        Route::post('/{event}/leave', [EventsController::class, 'postLeave'])->name('events.leave');
+        Route::post('/{event}/join', AttendEventController::class)->name('events.join');
+        Route::post('/{event}/leave', LeaveEventController::class)->name('events.leave');
     });
-    Route::get('/{event}', [EventsController::class, 'getEvent'])->name('events.show');
+    Route::get('/', PaginateEventsController::class)->name('events.index');
+    Route::get('/{event:slug}', ViewEventController::class)->name('events.show');
 });
 
 require __DIR__.'/auth.php';
