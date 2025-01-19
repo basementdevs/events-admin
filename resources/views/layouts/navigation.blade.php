@@ -8,20 +8,22 @@
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
+
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                <div class="flex items-center justify-center px-4">
+                    <a href="{{ route('dashboard') }}" class="text-lg font-light text-gray-800 dark:text-gray-200 space-x-8">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
+                        @auth
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
@@ -31,9 +33,25 @@
                                 </svg>
                             </div>
                         </button>
+                        @endauth
+                        @guest
+                                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                                    {{ __('About the Event') }}
+                                </x-nav-link>
+                                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                                    {{ __('See More') }}
+                                </x-nav-link>
+                                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                                    {{ __('Log in') }}
+                                </x-nav-link>
+
+                        @endguest
                     </x-slot>
 
                     <x-slot name="content">
+                        @auth
+
+
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -48,6 +66,7 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        @endauth
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -75,11 +94,19 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
+                @auth
+
+
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                @endauth
             </div>
 
             <div class="mt-3 space-y-1">
+                @auth
+
+
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
@@ -94,6 +121,7 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+                @endauth
             </div>
         </div>
     </div>
