@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Event extends Model
 {
@@ -27,5 +28,15 @@ class Event extends Model
             'start_at' => 'timestamp',
             'end_at' => 'timestamp',
         ];
+    }
+
+    public function attendees(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            User::class,
+            'events_attendees',
+            'event_id',
+            'user_id'
+        )->withTimestamps()->withPivotValue('status', 'pending');
     }
 }
