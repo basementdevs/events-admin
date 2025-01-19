@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->smallInteger('event_type'); // Meetup or Workshop
             $table->boolean('active');
+            $table->string('slug');
             $table->string('title');
             $table->text('description');
             $table->timestamp('event_at'); // Date

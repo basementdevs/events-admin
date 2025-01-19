@@ -14,6 +14,7 @@ class EventFactory extends Factory
     {
         return [
             'event_type' => $this->faker->word(),
+            'slug' => $this->faker->slug(),
             'active' => true,
             'title' => $this->faker->word(),
             'description' => $this->faker->text(),

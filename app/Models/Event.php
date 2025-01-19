@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @property int $id
  * @property bool $active
+ * @property string $slug
  * @property string $event_type
  * @property string $title
  * @property string $description
@@ -28,6 +29,7 @@ class Event extends Model
 
     protected $fillable = [
         'active',
+        'slug',
         'event_type',
         'title',
         'description',
@@ -40,12 +42,12 @@ class Event extends Model
         'waitlist_count',
     ];
 
-    protected function casts()
+    protected function casts(): array
     {
         return [
-            'event_at' => 'timestamp',
-            'start_at' => 'timestamp',
-            'end_at' => 'timestamp',
+            'event_at' => 'datetime',
+            'start_at' => 'datetime',
+            'end_at' => 'datetime',
         ];
     }
 
@@ -94,5 +96,10 @@ class Event extends Model
         $this->attendees()->detach($userId);
 
         return true;
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
     }
 }
