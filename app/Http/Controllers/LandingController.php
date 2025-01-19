@@ -13,6 +13,7 @@ class LandingController extends Controller
     public function __invoke(Request $request)
     {
         $event = Event::first();
+
         return view('welcome', compact('event'));
     }
 }
