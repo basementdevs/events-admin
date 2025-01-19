@@ -1,3 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Satoshi", sans-serif;
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    font-weight: 400;
+    src: url('../../public/fonts/Satoshi-Regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    font-weight: 500;
+    src: url('../../public/fonts/Satoshi-Medium.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: "Satoshi";
+    font-weight: 700;
+    src: url('../../public/fonts/Satoshi-Bold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: "Cal Sans";
+    font-weight: 600;
+    src: url('../../public/fonts/CalSans-SemiBold.woff2') format('woff2');
+  }
+
+  /* Light mode colors */
+
+  :root {
+    /* Opacity */
+    --opacity-semiopaque: 0.8;
+    --opacity-intense: 0.64;
+    --opacity-medium: 0.32;
+    --opacity-light: 0.16;
+    --opacity-semitransparent: 0.8;
+
+    /* Border Radius */
+    --border-radius-none: 0px;
+    --border-radius-xs: 4px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --border-radius-pill: 999px;
+
+    /* Border Width */
+    --border-width-none: 0px;
+    --border-width-hairline: 1px;
+    --border-width-thin: 2px;
+    --border-width-thick: 4px;
+    --border-width-heavy: 8px;
+
+    /* Drop Shadow */
+    --drop-shadow-level-1: 0 4px 8px rgba(0, 0, 0, 0.16);
+    --drop-shadow-level-2: 0 8px 24px rgba(0, 0, 0, 0.16);
+    --drop-shadow-level-3: 0 16px 32px rgba(0, 0, 0, 0.16);
+    --drop-shadow-level-4: 0 16px 48px rgba(0, 0, 0, 0.16);
+
+    /* Spacing */
+    --spacing-nano: 0px;
+    --spacing-xxxxs: 4px;
+    --spacing-xxxs: 12px;
+    --spacing-xxs: 16px;
+    --spacing-xs: 20px;
+    --spacing-sm: 24px;
+    --spacing-md: 32px;
+    --spacing-lg: 44px;
+    --spacing-xl: 48px;
+    --spacing-xxl: 56px;
+    --spacing-xxxl: 64px;
+    --spacing-xxxxl: 80px;
+    --spacing-huge: 96px;
+    --spacing-giant: 144px;
+    --spacing-extra-giant: 192px;
+
+    /* Typography */
+    --font-family-primary: "Satoshi", sans-serif;
+    --font-family-secondary: "Cal Sans", sans-serif;
+
+    --font-size-xxxs: 12px;
+    --font-size-xxs: 14px;
+    --font-size-xs: 16px;
+    --font-size-sm: 20px;
+    --font-size-md: 24px;
+    --font-size-lg: 32px;
+    --font-size-xl: 40px;
+    --font-size-xxl: 44px;
+    --font-size-xxxl: 48px;
+    --font-size-xxxxl: 64px;
+    --font-size-display: 80px;
+    --font-size-giant: 96px;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height-default: 100%;
+    --line-height-xs: 150%;
+  }
+
+  :root,
+  .light,
+  [data-theme="light"] {
+    color-scheme: light;
+    --color-primary-900: 74 24 140;
+    --color-primary-800: 0 117 0;
+    --color-primary-700: 0 117 0;
+    --color-primary-600: 146 64 251;
+    --color-primary-500: 151 71 255;
+    --color-primary-400: 193 114 255;
+    --color-primary-300: 213 144 255;
+    --color-primary-200: 230 175 255;
+    --color-primary-100: 243 206 255;
+    --color-primary-50: 252 239 255;
+
+    --color-secondary-900: 122 0 0;
+    --color-secondary-800: 158 0 0;
+    --color-secondary-700: 192 5 0;
+    --color-secondary-600: 222 37 0;
+    --color-secondary-500: 247 67 12;
+    --color-secondary-400: 255 99 48;
+    --color-secondary-300: 255 133 86;
+    --color-secondary-200: 255 167 128;
+    --color-secondary-100: 255 202 176;
+    --color-secondary-50: 255 237 228;
+
+    --color-helper-green: 3 173 0;
+    --color-helper-yellow: 236 199 7;
+    --color-helper-red: 231 35 35;
+    --color-helper-blue: 32 139 238;
+    --color-helper-icon: 95 95 95;
+    --color-helper-outline: 227 218 218;
+
+    --color-text-high: 9 9 10;
+    --color-text-medium: 79 79 79;
+    --color-text-low: 112 112 112;
+
+    --color-icon-high: 9 9 10;
+    --color-icon-medium: 134 134 135;
+    --color-icon-low: 185 185 190;
+
+    --color-elevation-surface: 245 245 255;
+    --color-elevation-01dp: 245 245 253;
+    --color-elevation-02dp: 228 228 237;
+    --color-elevation-03dp: 226 226 235;
+    --color-elevation-04dp: 223 223 232;
+    --color-elevation-05dp: 218 218 226;
+  }
+
+  /* Dark mode colors */
+  .dark,
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --color-primary-900: 75 24 141;
+    --color-primary-800: 66 32 128;
+    --color-primary-700: 88 49 173;
+    --color-primary-600: 99 58 249;
+    --color-primary-500: 151 71 255;
+    --color-primary-400: 193 114 255;
+    --color-primary-300: 213 144 255;
+    --color-primary-200: 230 175 255;
+    --color-primary-100: 243 206 255;
+    --color-primary-50: 252 239 255;
+
+    --color-secondary-900: 122 0 0;
+    --color-secondary-800: 158 0 0;
+    --color-secondary-700: 192 5 0;
+    --color-secondary-600: 222 37 0;
+    --color-secondary-500: 247 67 12;
+    --color-secondary-400: 255 99 48;
+    --color-secondary-300: 255 133 86;
+    --color-secondary-200: 255 167 128;
+    --color-secondary-100: 255 202 176;
+    --color-secondary-50: 255 237 228;
+
+    --color-helper-green: 3 173 0;
+    --color-helper-yellow: 236 199 7;
+    --color-helper-red: 231 35 35;
+    --color-helper-blue: 32 139 238;
+    --color-helper-icon: 200 200 200;
+    --color-helper-outline: 44 44 45;
+
+    --color-text-high: 245 245 255;
+    --color-text-medium: 156 156 156;
+    --color-text-low: 112 112 112;
+
+    --color-icon-high: 252 252 252;
+    --color-icon-medium: 156 156 156;
+    --color-icon-low: 122 122 122;
+
+    --color-elevation-surface: 9 9 10;
+    --color-elevation-01dp: 22 22 22;
+    --color-elevation-02dp: 26 26 27;
+    --color-elevation-03dp: 28 28 29;
+    --color-elevation-04dp: 31 31 32;
+    --color-elevation-05dp: 36 36 37;
+  }
+}
