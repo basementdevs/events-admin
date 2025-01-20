@@ -10,6 +10,7 @@ use Tests\TestCase;
 class DashboardControllerTest extends TestCase
 {
     use RefreshDatabase;
+
     public function test_can_authenticated_user_access_dashboard()
     {
         // Prepare
@@ -32,7 +33,6 @@ class DashboardControllerTest extends TestCase
         // Assert
         $response->assertRedirect(route('login'));
     }
-
 
     public function test_user_can_see_attend_to_event_button()
     {
@@ -72,5 +72,4 @@ class DashboardControllerTest extends TestCase
             ->assertDontSee('Attend')
             ->assertSee(route('events.leave', $event));
     }
-
 }

@@ -17,7 +17,6 @@ class PaginateEventsControllerTest extends TestCase
         $activeEvent = Event::factory()->create(['active' => true]);
         $pastEvents = Event::whereActive(false)->paginate(5);
 
-
         // Act
         $response = $this->get(route('events.index'));
 

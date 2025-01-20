@@ -16,7 +16,6 @@ class DashboardController extends Controller
             $isAttending = $activeEvent->attendees()->where('user_id', auth()->id())->exists();
         }
 
-
         return view('dashboard', [
             'activeEvent' => $activeEvent,
             'isAttending' => $isAttending,
