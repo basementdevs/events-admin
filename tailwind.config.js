@@ -8,6 +8,16 @@ export default {
     ],
     theme: {
       extend: {
+        container: {
+          center: true,
+          padding: '1rem',
+          screens: {
+            sm: '640px',
+            md: '768px',
+            lg: '1024px',
+            xl: '1122px',
+          },
+        },
         colors: {
           primary: {
             DEFAULT: "rgb(var(--color-primary-500) / <alpha-value>)",
@@ -126,12 +136,6 @@ export default {
           xxxx: "var(--font-size-xxxxl)",
           display: "var(--font-size-display)",
           giant: "var(--font-size-giant)",
-        },
-        fontWeight: {
-          regular: "var(--font-weight-regular)",
-          medium: "var(--font-weight-medium)",
-          semibold: "var(--font-weight-semibold)",
-          bold: "var(--font-weight-bold)",
         },
         lineHeight: {
           default: "var(--line-height-default)",

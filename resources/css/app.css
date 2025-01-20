@@ -97,12 +97,6 @@
     --font-size-xxxxl: 64px;
     --font-size-display: 80px;
     --font-size-giant: 96px;
-
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-
     --line-height-default: 100%;
     --line-height-xs: 150%;
   }
