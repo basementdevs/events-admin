@@ -18,6 +18,6 @@ class LeaveEventController extends Controller
     ): RedirectResponse {
         $leaveAction->handle($event);
 
-        return redirect()->route('events.show', $event);
+        return redirect()->route('dashboard');
     }
 }

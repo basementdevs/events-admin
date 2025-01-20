@@ -11,7 +11,7 @@ class PaginateEventsController extends Controller
     public function __invoke(): View
     {
         $activeEvent = Event::whereActive(true)->first();
-        $pastEvents = Event::whereActive(false)->paginate(1);
+        $pastEvents = Event::whereActive(false)->paginate(5);
 
         return view('events.index', [
             'activeEvent' => $activeEvent,

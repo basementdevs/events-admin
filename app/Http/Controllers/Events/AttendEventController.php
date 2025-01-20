@@ -19,10 +19,10 @@ class AttendEventController extends Controller
             $attendAction->handle($event);
         } catch (EventAttendException $exception) {
             return redirect()
-                ->route('events.show', $event)
+                ->route('dashboard')
                 ->withErrors($exception->getMessage(), 'error');
         }
 
-        return redirect()->route('events.show', $event);
+        return redirect()->route('dashboard');
     }
 }

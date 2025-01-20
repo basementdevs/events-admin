@@ -24,7 +24,7 @@ class AttendEventControllerTest extends TestCase
             ->post(route('events.join', $event));
 
         // Assert
-        $response->assertRedirect(route('events.show', $event));
+        $response->assertRedirect(route('dashboard'));
         $this->assertDatabaseHas('events_attendees', [
             'event_id' => $event->getKey(),
             'user_id' => $user->getKey(),
@@ -51,7 +51,7 @@ class AttendEventControllerTest extends TestCase
             ->post(route('events.join', $event));
 
         // Assert
-        $response->assertRedirect(route('events.show', $event));
+        $response->assertRedirect(route('dashboard'));
         $this->assertDatabaseHas('events_attendees', [
             'event_id' => $event->getKey(),
             'user_id' => $user->getKey(),
@@ -78,7 +78,7 @@ class AttendEventControllerTest extends TestCase
             ->post(route('events.join', $event));
 
         // Assert
-        $response->assertRedirect(route('events.show', $event));
+        $response->assertRedirect(route('dashboard'));
 
         $this->assertDatabaseHas('events_attendees', [
             'event_id' => $event->getKey(),

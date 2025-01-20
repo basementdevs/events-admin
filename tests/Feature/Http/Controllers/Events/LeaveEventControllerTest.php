@@ -26,7 +26,7 @@ class LeaveEventControllerTest extends TestCase
             ->post(route('events.leave', $event));
 
         // Assert
-        $response->assertRedirect(route('events.show', $event));
+        $response->assertRedirect(route('dashboard'));
         $this->assertDatabaseMissing('events_attendees', [
             'event_id' => $event->getKey(),
             'user_id' => $user->getKey(),

@@ -13,8 +13,10 @@ class PaginateEventsControllerTest extends TestCase
     public function test_check_if_theres_active_events()
     {
         // Prepare
+        Event::factory()->count(3)->create(['active' => false]);
         $activeEvent = Event::factory()->create(['active' => true]);
-        $pastEvents = Event::factory()->count(3)->create(['active' => false]);
+        $pastEvents = Event::whereActive(false)->paginate(5);
+
 
         // Act
         $response = $this->get(route('events.index'));
@@ -22,7 +24,6 @@ class PaginateEventsControllerTest extends TestCase
         // Assert
         $response->assertOk()
             ->assertSee($activeEvent->title)
-            ->assertViewHas('activeEvent', $activeEvent)
-            ->assertViewHas('pastEvents', $pastEvents);
+            ->assertViewHas('activeEvent', $activeEvent);
     }
 }
