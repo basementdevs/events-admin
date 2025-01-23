@@ -1,16 +1,15 @@
 <div class="h-[600px] w-full flex justify-center items-center flex-col bg-[url('https://s3-alpha-sig.figma.com/img/2f1a/60a1/6f1444bf3b2a06961f5ff319c0a9aaa0?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=oHpz7iAovz9CW8FZFFge2sJ2kclj7lZMAPqi-Y0MCNNeU6KXTthimd8Ss3dcBfoWbjsXtFW1UO9~xJ7gtgbWkttQG2V0ElJme-ss7rEtFUXpDSH3gxI~54XFpRlBzWub3L3r0NH1A7EfxRoIcqwO6herqxnRbVRAbpCDppS-X8bycYA8~XGcT5kOeco67JCIR0h5DmrMnejv~jHByaVDj5DHb5G2XII3cudXe9AvGRdZX4XKhtjpQS7KaHN0GCpuxPk~3CsM1c-i9ys3H9pfQLdMh4plqr7C2GxdEUeWMAFFGFdso7GNseZYk5m1ZYoZ4Rs2VgJcYzW5QplVJFtb7A__')] bg-cover bg-center relative">
     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/90 to-black to-95%"></div>
     <div class="h-full text-center container mx-auto relative z-10 flex flex-col gap-y-4 justify-center">
-        <div class="w-[760px] mx-auto space-y-4">
-            <div class="space-y-4">
-            <span class="text-[#7B5AFF] text-sm font-bold font-secondary">BasementDevs apresenta</span>
-            <h1 class="text-text-high text-5xl font-bold font-secondary first-letter:uppercase">{{ $event->title }}</h1>
-            <p class="text-text-medium font-primary font-semibold leading-5">{{ $event->description }}</p>
-        </div>
+        <x-content-header
+            :span="'BasementDevs apresenta'"
+            :title="$event->title"
+            :description="$event->description"
+        />
+
         <div class="space-x-3">
             <button class="bg-primary-500 text-white px-4 py-2 rounded-sm">Resgatar ingresso</button>
             <button class="bg-primary-500 text-white px-4 py-2 rounded-sm">Submeter palestra</button>
-        </div>
         </div>
         <div class="w-full relative z-20">
             <div class="w-full">
