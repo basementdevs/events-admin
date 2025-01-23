@@ -9,7 +9,7 @@
             @foreach ([1, 2, 3] as $speaker)
             <x-card>
                 <div class="flex justify-center w-full mb-5">
-                    <img src="https://robohash.org/{{ $speaker }}?set=set5" class="size-24 bg-neutral-700 rounded-full" />
+                    <img src="{{ asset('/assets/speaker.png') }}" class="size-24 bg-neutral-700 rounded-full" />
                 </div>
                 <h3 class="text-text-high text-3xl font-bold font-secondary first-letter:uppercase mt-2">Nome</h3>
                 <span class="text-[#7B5AFF] text-sm font-bold font-secondary">Apoiadores</span>
