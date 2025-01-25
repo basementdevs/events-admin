@@ -141,6 +141,9 @@ export default {
           default: "var(--line-height-default)",
           xs: "var(--line-height-xs)",
         },
+        backgroundImage: {
+          'hero': "url('./public/assets/background-hero.webp')",
+        },
       },
     },
     plugins: [],
