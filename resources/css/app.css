@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   body {
@@ -31,6 +30,12 @@
     font-family: "Cal Sans";
     font-weight: 600;
     src: url('../../public/fonts/CalSans-SemiBold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: "Sora";
+    font-weight: 600;
+    src: url('../../public/fonts/Sora-Bold.ttf') format('ttf');
   }
 
   /* Light mode colors */
@@ -84,6 +89,8 @@
     /* Typography */
     --font-family-primary: "Satoshi", sans-serif;
     --font-family-secondary: "Cal Sans", sans-serif;
+    --font-family-button: "Sora", sans-serif;
+    
 
     --font-size-xxxs: 12px;
     --font-size-xxs: 14px;

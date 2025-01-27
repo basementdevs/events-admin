@@ -1,5 +1,5 @@
 <x-app-layout>
-    <main class="flex flex-col space-y-24 md:space-y-36">
+    <main class="space-y-20">
         <x-landing.hero :event="$event" />
         <x-landing.sponsors />
         <x-landing.speakers />

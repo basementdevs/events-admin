@@ -122,6 +122,7 @@ export default {
         fontFamily: {
           primary: "var(--font-family-primary)",
           secondary: "var(--font-family-secondary)",
+          button: ["Sora", "sans-serif"],
         },
         fontSize: {
           xxxs: "var(--font-size-xxxs)",
@@ -140,9 +141,6 @@ export default {
         lineHeight: {
           default: "var(--line-height-default)",
           xs: "var(--line-height-xs)",
-        },
-        backgroundImage: {
-          'hero': "url('./public/assets/background-hero.webp')",
         },
       },
     },

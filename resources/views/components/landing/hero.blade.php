@@ -1,14 +1,17 @@
     <div class="h-[689px] w-full flex justify-center items-center flex-col bg-cover bg-center relative"
         style="background-image: url('{{ asset('assets/background-hero.webp') }}')">
         <div class="absolute inset-0 bg-gradient-to-b from-black/65 to-45% via-black from-100%"></div>
-        <div class="h-full text-center container mx-auto relative z-10 flex flex-col gap-y-4 my-24">
+        <div class="h-full text-center container mx-auto relative z-10 pt-20 md:pt-0 flex flex-col gap-y-4 my-24">
             <x-content-header :span="'BasementDevs apresenta'" :title="$event->title" :description="$event->description" />
 
-            <div class="space-x-3 mt-8">
-                <button class="bg-[#7B5AFF] text-white px-6 py-3 rounded-sm font-bold">Resgatar ingresso</button>
+            <div class="md:gap-x-3 mt-8 flex flex-col md:flex-row gap-y-3 items-center justify-center">
+                <button class="bg-[#7B5AFF] text-white px-6 py-3 font-bold font-button md:w-auto w-full rounded-[12px]">
+                    Resgatar ingresso
+                </button>
 
-                <button class="border border-[#7B5AFF] text-white px-6 py-3 rounded-sm font-medium">Submeter
-                    palestra</button>
+                <button class="border border-[#7B5AFF] text-white px-6 py-3 font-medium md:w-auto w-full rounded-[12px]">
+                    Submeter palestra
+                </button>
             </div>
             <div class="w-full relative z-20 mt-20">
                 <div class="w-full">
@@ -27,7 +30,7 @@
 
                             <div class="text-left">
                                 <span class="text-text-high text-sm font-semibold font-primary">Data</span>
-                                <p class="text-text-medium font-medium font-secondary">13 de Maio, 2024 - 17:00 Hrs</p>
+                                <p class="text-text-medium font-medium font-primary">13 de Maio, 2024 - 17:00 Hrs</p>
                             </div>
                         </div>
 
@@ -45,7 +48,7 @@
                             </div>
                             <div class="text-left">
                                 <span class="text-text-high text-sm font-semibold font-primary">Endereço</span>
-                                <p class="text-text-medium font-medium font-secondary">Avenida Sarah Kubitschek - 000 -
+                                <p class="text-text-medium font-medium font-primary">Avenida Sarah Kubitschek - 000 -
                                     Cachoeira Paulista - SP</p>
                             </div>
                         </div>
